@@ -1,112 +1,129 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,700;1,300&family=Poppins:wght@300;400;500;600&display=swap');
 
+:root {
+  --bg-dark: #000;
+  --text-light: #fff;
+  --hover: rgb(192, 189, 205);
+  --border: #333;
+}
+
 * {
-    padding: 0;
-    margin: 0;
-    font-family: 'Noto Sans', sans-serif;
-    font-family: 'Poppins', sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', 'Noto Sans', sans-serif;
 }
 
 nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: black;
-    color: white;
-    padding: 19px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  padding: 1.2rem;
 }
 
 ul {
-    display: flex;
+  display: flex;
+  gap: 1rem; /* modern way instead of padding in li */
+  list-style: none;
 }
 
-ul li {
-    list-style: none;
-    padding: 0 13px;
+ul li a {
+  color: var(--text-light);
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-ul li a{
-    color: white;
-    text-decoration: none;
+ul li a:hover,
+ul li a:focus {
+  color: var(--hover);
+  outline: none;
 }
 
-ul >li> a:hover{
-    color: rgb(192, 189, 205);
+main {
+  min-height: 100vh;
 }
 
-main{
-    min-height: 100vh; 
+.logo img {
+  width: 1.5rem; /* scalable */
+  filter: invert(1);
 }
 
-.logo img{
-    width: 15px;
-    filter: invert(1);
+.container {
+  max-width: 80vw;
+  margin: auto;
+  padding: 1rem;
 }
 
-.container{ 
-    max-width: 80vw;
-    margin: auto;
-    padding: 9px 15px;
+.container h1 {
+  padding: 0.8rem 0;
 }
 
-.container h1{
-    padding: 12px 0;
+input[type='text'] {
+  min-width: 23vw;
+  padding: 0.5rem 0.8rem;
+  border: 2px solid var(--bg-dark);
+  border-radius: 4px;
+  font-size: 1.2rem;
 }
 
-input[type='text']{
-    min-width: 23vw;
-    padding: 3px 12px;
-    border: 2px solid black;
-    border-radius: 4px;
-    font-size: 20px;
+.btn {
+  background: var(--bg-dark);
+  color: var(--text-light);
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
 }
 
-.btn{
-    background: black;
-    color: white;
-    padding: 9px 12px;
-    border: 1px solid gray;
-    border-radius: 6px;
-    cursor: pointer;
+.btn:hover,
+.btn:focus {
+  background: #111;
+  transform: translateY(-1px);
+  outline: none;
 }
 
-#resultCont div::first-letter{
-    text-transform: uppercase;
+#resultCont div::first-letter {
+  text-transform: uppercase;
 }
 
-footer{
-    font-size: 12px;
-    background-color: black;
-    color: white;
-    display: flex;
-    padding: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+footer {
+  font-size: 0.8rem;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8rem;
 }
 
-@media only screen and (max-width: 600px) {
-
-    .container{
-        font-size: 12px; 
-    }
-
-    input[type='text'] {
-        width: 100%; 
-    }
-
-    nav{
-        flex-direction: column;
-    }
-    .logo{
-        padding: 6px 0;
-        font-size: 12px;
-    }
-    .logo span{
-        font-size: 20px;
-    }
-    .logo img{
-        width: 15px;
-        filter: invert(1);
-    }
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+    font-size: 0.9rem;
   }
+
+  input[type='text'] {
+    width: 100%;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .logo {
+    padding: 0.4rem 0;
+    font-size: 0.9rem;
+  }
+
+  .logo span {
+    font-size: 1.2rem;
+  }
+
+  .logo img {
+    width: 1.2rem;
+  }
+}
